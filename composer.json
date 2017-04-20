@@ -29,9 +29,9 @@
     ],
     "autoload": {
         "psr-4": {
-            "Blast\\DoctrinePgsqlBundle\\": ""
+            "Blast\\DoctrinePgsqlBundle\\": "src/",
+            "Blast\\DoctrinePgsqlBundle\\Tests\\": "tests/"
         }
     },
-    "suggest": {
-    }
+    "suggest": []
 }
