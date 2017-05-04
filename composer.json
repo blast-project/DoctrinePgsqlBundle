@@ -32,6 +32,5 @@
             "Blast\\DoctrinePgsqlBundle\\": "src/",
             "Blast\\DoctrinePgsqlBundle\\Tests\\": "tests/"
         }
-    },
-    "suggest": []
+    }
 }
