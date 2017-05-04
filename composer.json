@@ -8,6 +8,9 @@
         "sonata-project/admin-bundle":  "^3.1",
         "sonata-project/doctrine-orm-admin-bundle": "^3.1"
     },
+    "require-dev": {
+	"symfony/phpunit-bridge": "^2.7 || ^3.0"
+    },
     "license": "GPL-3.0",
     "keywords": [
         "blast",
