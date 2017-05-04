@@ -1,5 +1,5 @@
 # BlastDoctrinePgsqlBundle
-[![Version](https://img.shields.io/packagist/vpre/blast-project/DoctrinePgsqlBundle.svg)](https://packagist.org/packages/sylius/sylius)
+[![Version](https://img.shields.io/packagist/vpre/blast-project/DoctrinePgsqlBundle.svg)](https://packagist.org/packages/blast-project/doctrine-pgsql-bundle)
 [![Build Status](https://travis-ci.org/blast-project/DoctrinePgsqlBundle.svg?branch=master)](https://travis-ci.org/blast-project/DoctrinePgsqlBundle)
 [![Coverage Status](https://coveralls.io/repos/github/blast-project/DoctrinePgsqlBundle/badge.svg?branch=master)](https://coveralls.io/github/blast-project/DoctrinePgsqlBundle?branch=master)
 [![License](https://img.shields.io/github/license/blast-project/DoctrinePgsqlBundle.svg?style=flat-square)][license]
