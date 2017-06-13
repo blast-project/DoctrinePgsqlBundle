@@ -1,5 +1,15 @@
 # Change Log
 
+## [0.4.3](https://github.com/blast-project/DoctrinePgsqlBundle/tree/0.4.3) (2017-06-13)
+[Full Changelog](https://github.com/blast-project/DoctrinePgsqlBundle/compare/0.4.2...0.4.3)
+
+**Merged pull requests:**
+
+- DevKit updates for DoctrinePgsqlBundle [\#11](https://github.com/blast-project/DoctrinePgsqlBundle/pull/11) ([BlastCI](https://github.com/BlastCI))
+- DevKit updates for DoctrinePgsqlBundle [\#10](https://github.com/blast-project/DoctrinePgsqlBundle/pull/10) ([BlastCI](https://github.com/BlastCI))
+- DevKit updates for DoctrinePgsqlBundle [\#9](https://github.com/blast-project/DoctrinePgsqlBundle/pull/9) ([BlastCI](https://github.com/BlastCI))
+- DevKit updates for DoctrinePgsqlBundle [\#7](https://github.com/blast-project/DoctrinePgsqlBundle/pull/7) ([BlastCI](https://github.com/BlastCI))
+
 ## [0.4.2](https://github.com/blast-project/DoctrinePgsqlBundle/tree/0.4.2) (2017-05-04)
 [Full Changelog](https://github.com/blast-project/DoctrinePgsqlBundle/compare/0.2...0.4.2)
 
