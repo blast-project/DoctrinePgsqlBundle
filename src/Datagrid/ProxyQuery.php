@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This file is part of the Blast Project package.
+ *
+ * Copyright (C) 2015-2017 Libre Informatique
+ *
+ * This file is licenced under the GNU LGPL v3.
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 namespace Blast\DoctrinePgsqlBundle\Datagrid;
 
 use Doctrine\DBAL\Types\Type;
@@ -10,12 +20,13 @@ use Sonata\DoctrineORMAdminBundle\Datagrid\ProxyQuery as BaseProxyQuery;
 class ProxyQuery extends BaseProxyQuery
 {
     /**
-     * query hints that will be added just before the query execution
+     * query hints that will be added just before the query execution.
+     *
      * @var array
      */
     protected $_hints = array();
 
-     /**
+    /**
      * {@inheritdoc}
      */
     public function execute(array $params = array(), $hydrationMode = null)
@@ -35,22 +46,23 @@ class ProxyQuery extends BaseProxyQuery
         }
 
         // Use ILIKE instead of LIKE for Postgresql
-        if ( 'pdo_pgsql' == $queryBuilder->getEntityManager()->getConnection()->getDriver()->getName() )
+        if ('pdo_pgsql' == $queryBuilder->getEntityManager()->getConnection()->getDriver()->getName()) {
             $this->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Blast\DoctrinePgsqlBundle\DoctrineExtensions\BlastWalker');
+        }
 
         $query = $this->getFixedQueryBuilder($queryBuilder)->getQuery();
 
-        foreach( $this->_hints as $name => $value )
+        foreach ($this->_hints as $name => $value) {
             $query->setHint($name, $value);
+        }
 
         return $query->execute($params, $hydrationMode);
     }
 
-
     /**
      * This method alters the query to return a clean set of object with a working
      * set of Object.
-     * We (Libre Informatique) have altered it to replace LIKE by ILIKE for PostgreSQL
+     * We (Libre Informatique) have altered it to replace LIKE by ILIKE for PostgreSQL.
      *
      * @param QueryBuilder $queryBuilder
      *
@@ -84,14 +96,13 @@ class ProxyQuery extends BaseProxyQuery
             }
             $idxSelect .= ($idxSelect !== '' ? ', ' : '').$idSelect;
         }
-        
-        foreach($queryBuilderId->getDqlParts()['orderBy'] as $sort){
-                
+
+        foreach ($queryBuilderId->getDqlParts()['orderBy'] as $sort) {
             $field = chop($sort->getParts()[0], 'ASC');
             $field = chop($field, 'DESC');
-            $idxSelect .= ', (' . $field . ')';
+            $idxSelect .= ', ('.$field.')';
         }
-            
+
         $queryBuilderId->resetDQLPart('select');
         $queryBuilderId->add('select', 'DISTINCT '.$idxSelect);
 
@@ -112,12 +123,14 @@ class ProxyQuery extends BaseProxyQuery
         }
 
         // Use ILIKE instead of LIKE for Postgresql
-        if ( 'pdo_pgsql' == $queryBuilderId->getEntityManager()->getConnection()->getDriver()->getName() )
+        if ('pdo_pgsql' == $queryBuilderId->getEntityManager()->getConnection()->getDriver()->getName()) {
             $this->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, 'Blast\DoctrinePgsqlBundle\DoctrineExtensions\BlastWalker');
+        }
 
         $query = $queryBuilderId->getQuery();
-        foreach( $this->_hints as $name => $value )
+        foreach ($this->_hints as $name => $value) {
             $query->setHint($name, $value);
+        }
 
         $results = $query->execute(array(), Query::HYDRATE_ARRAY);
         $platform = $queryBuilderId->getEntityManager()->getConnection()->getDatabasePlatform();
@@ -150,16 +163,15 @@ class ProxyQuery extends BaseProxyQuery
     /**
      * Sets a query hint that will be used just before the query execution.
      *
-     * @param string $name  The name of the hint.
-     * @param mixed  $value The value of the hint.
+     * @param string $name  the name of the hint
+     * @param mixed  $value the value of the hint
      *
-     * @return static This instance.
+     * @return static this instance
      */
     public function setHint($name, $value)
     {
         $this->_hints[$name] = $value;
+
         return $this;
     }
-
 }
-
