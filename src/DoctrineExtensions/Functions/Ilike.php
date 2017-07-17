@@ -32,6 +32,6 @@ class Ilike extends FunctionNode
 
     public function getSql(\Doctrine\ORM\Query\SqlWalker $sqlWalker)
     {
-        return $this->field->dispatch($sqlWalker).' ILIKE '.$this->value->dispatch($sqlWalker);
+        return $this->field->dispatch($sqlWalker) . ' ILIKE ' . $this->value->dispatch($sqlWalker);
     }
 }
