@@ -37,7 +37,7 @@ class Substring extends FunctionNode
 
     public function getSql(\Doctrine\ORM\Query\SqlWalker $sqlWalker)
     {
-        return 'SUBSTRING('.$this->field->dispatch($sqlWalker).' FROM '.
-            $sqlWalker->walkStringPrimary($this->regexpExpression).')';
+        return 'SUBSTRING(' . $this->field->dispatch($sqlWalker) . ' FROM ' .
+            $sqlWalker->walkStringPrimary($this->regexpExpression) . ')';
     }
 }

@@ -38,7 +38,7 @@ class ProxyQuery extends BaseProxyQuery
         if ($this->getSortBy()) {
             $sortBy = $this->getSortBy();
             if (strpos($sortBy, '.') === false) { // add the current alias
-                $sortBy = $queryBuilder->getRootAlias().'.'.$sortBy;
+                $sortBy = $queryBuilder->getRootAlias() . '.' . $sortBy;
             }
             $queryBuilder->addOrderBy($sortBy, $this->getSortOrder());
         } else {
@@ -94,17 +94,17 @@ class ProxyQuery extends BaseProxyQuery
             if ($metadata->hasAssociation($idName)) {
                 $idSelect = sprintf('IDENTITY(%s) as %s', $idSelect, $idName);
             }
-            $idxSelect .= ($idxSelect !== '' ? ', ' : '').$idSelect;
+            $idxSelect .= ($idxSelect !== '' ? ', ' : '') . $idSelect;
         }
 
         foreach ($queryBuilderId->getDqlParts()['orderBy'] as $sort) {
             $field = chop($sort->getParts()[0], 'ASC');
             $field = chop($field, 'DESC');
-            $idxSelect .= ', ('.$field.')';
+            $idxSelect .= ', (' . $field . ')';
         }
 
         $queryBuilderId->resetDQLPart('select');
-        $queryBuilderId->add('select', 'DISTINCT '.$idxSelect);
+        $queryBuilderId->add('select', 'DISTINCT ' . $idxSelect);
 
         // for SELECT DISTINCT, ORDER BY expressions must appear in idxSelect list
         /* Consider
@@ -116,7 +116,7 @@ class ProxyQuery extends BaseProxyQuery
         if ($this->getSortBy()) {
             $sortBy = $this->getSortBy();
             if (strpos($sortBy, '.') === false) { // add the current alias
-                $sortBy = $rootAlias.'.'.$sortBy;
+                $sortBy = $rootAlias . '.' . $sortBy;
             }
             $sortBy .= ' AS __order_by';
             $queryBuilderId->addSelect($sortBy);
