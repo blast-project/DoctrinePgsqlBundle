@@ -13,7 +13,19 @@
 namespace Blast\DoctrinePgsqlBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Doctrine\ORM\Query;
 
 class BlastDoctrinePgsqlBundle extends Bundle
 {
+    public function boot()
+    {
+        parent::boot();
+        $this->container
+            ->get('doctrine.orm.entity_manager')
+            ->getConfiguration()
+            ->setDefaultQueryHint(
+                Query::HINT_CUSTOM_OUTPUT_WALKER,
+                'Blast\DoctrinePgsqlBundle\DoctrineExtensions\BlastWalker'
+            );
+    }
 }

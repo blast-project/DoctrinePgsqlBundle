@@ -28,7 +28,7 @@ class BlastWalker extends SqlWalker
         $sql = parent::walkSelectClause($selectClause);
 
         if ($this->getQuery()->getHint('blastWalker.noIlike') === false) {
-            $sql = str_replace('LIKE', 'ILIKE', $sql);
+            $sql = str_replace(' LIKE ', ' ILIKE ', $sql);
         }
 
         return $sql;
@@ -46,7 +46,21 @@ class BlastWalker extends SqlWalker
         $sql = parent::walkWhereClause($whereClause);
 
         if ($this->getQuery()->getHint('blastWalker.noIlike') === false) {
-            $sql = str_replace('LIKE', 'ILIKE', $sql);
+            $sql = str_replace(' LIKE ', ' ILIKE ', $sql);
+        }
+
+        return $sql;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function walkLikeExpression($likeExpr)
+    {
+        $sql = parent::walkLikeExpression($likeExpr);
+
+        if ($this->getQuery()->getHint('blastWalker.noIlike') === false) {
+            $sql = str_replace(' LIKE ', ' ILIKE ', $sql);
         }
 
         return $sql;
