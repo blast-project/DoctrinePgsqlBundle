@@ -37,6 +37,7 @@
             "dev-wip-lisem": "0.4.x-dev"
         }
     },
+    "version": "dev-wip-lisem",
     "autoload": {
         "psr-4": {
             "Blast\\DoctrinePgsqlBundle\\": "src/"
