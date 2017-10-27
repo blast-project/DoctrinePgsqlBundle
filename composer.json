@@ -35,5 +35,6 @@
         "psr-4": {
             "Blast\\DoctrinePgsqlBundle\\": "src/"
         }
-    }
+    },
+    "version": "dev-wip-lisem"
 }
