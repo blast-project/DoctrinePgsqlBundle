@@ -36,6 +36,5 @@
         "psr-4": {
             "Blast\\DoctrinePgsqlBundle\\": "src/"
         }
-    },
-    "version": "0.6.4"
+    }
 }
